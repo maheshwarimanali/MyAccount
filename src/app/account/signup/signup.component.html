@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" name="firstName">
+                    <p *ngIf="signupForm.get('firstName').hasError('required') && !signupForm.get('firstName').pristine" class="alert alert-danger">
+                    	First Name is Required
+                	</p>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" name="lastName">
+                    <p *ngIf="signupForm.get('lastName').hasError('required') && !signupForm.get('lastName').pristine" class="alert alert-danger">
+                    	Last Name is Required
+                	</p>  
+                </div>
+                <div class="form-group">
+                   	<label>Email</label>
+                   	<input type="text" formControlName="email" class="form-control" name="email">
+                   	<p *ngIf="signupForm.get('email').hasError('required') && !signupForm.get('email').pristine" class="alert alert-danger">
+                  		Please provide your E-mail
+                	</p>
+                	<p class="lblError" *ngIf="signupForm.get('email').hasError('email') && !signupForm.get('email').pristine" class="alert alert-danger">
+                		E-mail is Invalid
+                	</p>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control" name="password"> 
+                    	<p *ngIf="signupForm.get('password').hasError('required') && !signupForm.get('password').pristine" class="alert alert-danger">
+                  			Please Enter the password
+                		</p>
+                		<p class="lblError" *ngIf="signupForm.get('password').hasError('minlength') && !signupForm.get('password').pristine" class="alert alert-danger">
+                			please enter 6 digit password
+                		</p>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" [disabled]='!signupForm.valid'>Signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
