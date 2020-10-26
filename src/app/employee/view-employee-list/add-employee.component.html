@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+			<form #AddEmpForm="ngForm" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<label for="name">Employee Name</label>
+					<input type="text" id="name" class="form-control" name="name" [(ngModel)]="employee.name">
+				</div>
+				<div class="form-group">
+					<label for="destination">Employee Destination</label>
+					<input type="text" id="destination" class="form-control" name="destination" [(ngModel)]="employee.destination">
+				</div>
+				<div class="form-group">
+					<label for="department">Employee Department</label>
+					<select type="text" id="department" class="form-control" name="department" [(ngModel)]="employee.department">
+						<option value="1">Help disk</option>
+						<option value="2">HR</option>
+						<option value="3">IT</option>
+					</select>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary">Add</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
