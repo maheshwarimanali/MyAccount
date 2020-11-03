@@ -4,12 +4,12 @@
 			<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
 				<div class="form-group">
 					<label for="email">E-mail</label>
-					<input type="email" #emailRef="ngModel" id="email" class="form-control" ngModel name="email" required email>   
+					<input type="email" #emailRef="ngModel" id="email" class="form-control" (ngModel)="email" name="email" required email>   
 					<div [hidden]="emailRef.valid || emailRef.pristine" class="alert alert-danger">Please Enter the email</div>
 				</div>
 				<div class="form-group">
 					<label for="Password">Password</label>
-					<input type="Password" #passwordRef="ngModel" id="Password" class="form-control" ngModel name="password" required minlength="6">
+					<input type="Password" #passwordRef="ngModel" id="Password" class="form-control" (ngModel)="password" name="password" required minlength="6">
 					<div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" class="alert alert-danger">
 						<div [hidden]="!passwordRef.errors.required">
 							Please enter the password

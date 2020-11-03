@@ -14,10 +14,17 @@
 			        <tr *ngFor="let employee of employees">
 			          	<td>{{employee.name}}</td>
 			          	<td>{{employee.destination}}</td>
-			          	<td>{{employee.department}}</td>
+			          	<td>
+			          		<div [ngSwitch] ="employee.department">
+			          			<span *ngSwitchCase="1">Help Disk</span>
+			          			<span *ngSwitchCase="2">HR</span>
+			          			<span *ngSwitchCase="3">IT</span>
+			          			<span *ngSwitchDefault>Not Applicable</span>
+			          		</div>
+			          	</td>
 			          	<td>	
 			          		<button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-			              	<button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+			              	<button (click)="editEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Edit</button>
 			          	</td>
 			        </tr>
 			    </tbody>

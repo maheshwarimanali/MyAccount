@@ -7,13 +7,13 @@
         <a class="nav-link" [routerLink]="['/account/login']">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['account/signup']">Signup</a>
+        <a class="nav-link"  [routerLink]="['account/signup']">Signup</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['employee/Add-employee']">Add Employee</a>
+        <a class="nav-link" *ngIf="authService.isLoggedIn()" [routerLink]="['employee/Add-employee']">Add Employee</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['employee/View-employee-list']">View Employee</a>
+        <a class="nav-link" *ngIf="authService.isLoggedIn()" [routerLink]="['employee/View-employee-list']">View Employee</a>
       </li>
     </ul>
   </div>

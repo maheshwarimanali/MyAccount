@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../auth/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,20 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+	email = ''
+	password = ''
+	invalidLogin = false
 
-  ngOnInit(): void {
-  }
-  onSubmit(loginForm: NgForm) {
-  	console.log(loginForm.value);
-  }
+  	constructor(public router: Router, public authService: AuthenticationService) { }
+
+  	ngOnInit(): void {
+  	}
+
+  	onSubmit(loginForm: NgForm) {
+  		if(this.authService.authenticate(this.email, this.password)) {
+  			this.router.navigate(['employee/View-employee-list'])
+  		} else
+  			this.invalidLogin = true;
+  	}
 
 }
