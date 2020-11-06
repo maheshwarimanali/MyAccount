@@ -22,7 +22,7 @@ export class ViewEmployeeListComponent implements OnInit {
   		this.router.navigate(['employee/Edit-employee']);
   	}
 
-  	deleteEmployee(id: number) {
-  		this.employeeService.deleteEmployee(id);
+  	deleteEmployee(employee: Employee) {
+  		this.employees = this.employees.filter(currentEmployee => currentEmployee !== employee);
   	}
 }

@@ -7,6 +7,7 @@ import { ViewEmployeeListComponent } from './view-employee-list/view-employee-li
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeeService } from './employee.service';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [ViewEmployeeListComponent, AddEmployeeComponent, EditEmployeeComponent],
@@ -14,8 +15,9 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    EmployeeRoutingModule
+    BsDatepickerModule.forRoot(),
+	EmployeeRoutingModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService]
 })
 export class EmployeeModule { }

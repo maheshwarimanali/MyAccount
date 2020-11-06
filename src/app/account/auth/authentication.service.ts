@@ -21,4 +21,8 @@ export class AuthenticationService {
 		console.log(!(user === null))
 		return !(user === null )		
 	}
+
+	logOut() {
+    	localStorage.removeItem('email')
+  	}
 }

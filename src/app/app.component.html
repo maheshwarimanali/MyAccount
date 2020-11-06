@@ -4,16 +4,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/account/login']">Login</a>
+        <a class="nav-link"  *ngIf="!authService.isLoggedIn()"[routerLink]="['/account/login']">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  [routerLink]="['account/signup']">Signup</a>
+        <a class="nav-link"   *ngIf="authService.isLoggedIn()"[routerLink]="['account/signup']">Signup</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authService.isLoggedIn()" [routerLink]="['employee/Add-employee']">Add Employee</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authService.isLoggedIn()" [routerLink]="['employee/View-employee-list']">View Employee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="authService.isLoggedIn()" [routerLink]="['account/logout']">Logout</a>
       </li>
     </ul>
   </div>

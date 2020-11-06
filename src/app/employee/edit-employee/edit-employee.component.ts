@@ -11,12 +11,16 @@ export class EditEmployeeComponent implements OnInit {
 
 	editForm: FormGroup;
 
+	salary = ''
+	pancard = ''
+	Date = ''
+
   	constructor(public formBuilder: FormBuilder, public router: Router) { }
 
   	ngOnInit() {
 		this.editForm = this.formBuilder.group({
 	        employeeSalary: ['', Validators.required],
-	        employeePancard: ['', Validators.required],
+	        employeePancard: ['', [Validators.required, Validators.minLength(10)]],
 	        Date: ['', Validators.required]
 	    });
 	}

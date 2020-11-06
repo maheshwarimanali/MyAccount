@@ -13,11 +13,4 @@ export class EmployeeService {
 	save(employee: Employee) {
 		this.employeeList.push(employee);
 	}
-
-	deleteEmployee(id: number) {
-		const i = this.employeeList.findIndex(e => e.id === id);
-		if(i !== -1) {
-			this.employeeList.splice(i, 1);
-		}
-	}
 }
